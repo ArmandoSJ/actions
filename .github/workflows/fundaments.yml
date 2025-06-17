@@ -10,8 +10,9 @@ jobs:
         run: echo "Hello World"
   
   second_job:
+    if: ${{ github.ref == 'refs/heads/main' }}
     needs: first_job
     runs-on: ubuntu-latest
     steps:
-      - name: Hello World
-        run: echo "Hello World" 
+      - name: Github Ref
+        run: echo "Github ref ${{ github.ref }}" 
