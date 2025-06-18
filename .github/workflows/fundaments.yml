@@ -4,12 +4,13 @@ on: push
 
 jobs:
   first_job:
+    name: Print a message
     runs-on: ubuntu-latest
     env: 
       NAME: Armando
     steps:
       - name: Hello World
-        run: echo "Hello World $NAME"
+        run: echo "Hello World ${{ env.NAME }}"
   
   second_job:
     if: ${{ github.ref == 'refs/heads/main' }}
